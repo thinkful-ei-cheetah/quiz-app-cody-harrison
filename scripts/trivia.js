@@ -18,9 +18,5 @@ class trivaAPI {
       });
   }
 }
-let test = new trivaAPI();
-test.newUrl();
-console.log(test.questions);
-console.log(test.correctAnswers);
-console.log(test.incorrectAnswers);
+
 // trivaAPI.url ='https://opentdb.com/api.php?amount=10';
