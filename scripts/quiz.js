@@ -9,14 +9,13 @@ class quiz {
     this.active = false;
     this.questionNumber= 0;
   }
-  questiontext(questionSet){
-    this.unasked.push(questionSet);
-    // questionSet.questions.pop();
+  startquestions(questionSet){
+    this.unasked=questionSet;
 
   }
   askedQuestions(questionSet){
+    this.asked.push(this.unasked[0]);
     this.unasked.pop();
-    this.asked.push(questionSet);
   }
   toggleActive(){
     this.active = !this.active;
@@ -25,9 +24,13 @@ class quiz {
 }
 const test = new trivaAPI;
 test.newUrl().then(()=>{
+  const test2=new question();
+  test2.questiontext(test.questions);
+  test2.correctAnswerChoice(test.correctAnswers);
+  test2.answerText(test.incorrectAnswers);
   const test3=new quiz();
-  test3.questiontext(test.questions);
-  test3.askedQuestions(test.questions);
+  test3.startquestions(test.questions);
+  test3.askedQuestions();
   console.log(test3.unasked);
   console.log(test3.asked);
 
