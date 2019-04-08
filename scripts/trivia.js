@@ -9,13 +9,18 @@ class trivaAPI {
     fetch('https://opentdb.com/api.php?amount=10')
       .then(res => res.json())
       .then(data =>{
-        this.questions.push( data.questions);
-        this.correctAnswers.push( data.correct_answer);
-        this.incorrectAnswers.push( data.incorrect_answers);
+        data.results.forEach(q=>{
+          this.questions.push(q.question);
+          this.correctAnswers.push(q.correct_answer);
+          this.incorrectAnswers.push(q.incorrect_answers);
+        })
+        
       });
   }
 }
-const test = new trivaAPI;
+let test = new trivaAPI();
 test.newUrl();
 console.log(test.questions);
+console.log(test.correctAnswers);
+console.log(test.incorrectAnswers);
 // trivaAPI.url ='https://opentdb.com/api.php?amount=10';
