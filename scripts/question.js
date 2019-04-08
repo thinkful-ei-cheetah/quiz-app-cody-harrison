@@ -41,17 +41,5 @@ class question{
 
   }
 }
-const test = new trivaAPI();
-test.newUrl().then(()=>{
-  const test2=new question();
-
-  test2.questiontext(test.questions);
-  test2.correctAnswerChoice(test.correctAnswers);
-  test2.answerText(test.incorrectAnswers);
-  test2.shuffle();
-  console.log(test2.correctAnswer);
-  console.log(test2.answers);
-  
-
-});
+    
 
