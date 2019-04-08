@@ -6,7 +6,7 @@ class trivaAPI {
     this.incorrectAnswers = [];
   }
   newUrl(){
-    fetch('https://opentdb.com/api.php?amount=10')
+    return fetch('https://opentdb.com/api.php?amount=10')
       .then(res => res.json())
       .then(data =>{
         data.results.forEach(q=>{

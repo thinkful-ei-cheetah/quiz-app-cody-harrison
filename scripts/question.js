@@ -11,7 +11,8 @@ class question{
     questiontext(questionSet){
         this.text=questionSet[this.questionNumber];
         // questionSet.questions.pop();
-        console.log(questionSet[0]);
+        console.log(typeof questionSet);
+        console.log(questionSet.length);
     }
     correctAnswerChoice(questionSet){
         this.correctAnswer=correct[this.questionNumber];
@@ -19,10 +20,12 @@ class question{
     }
 };
 const test = new trivaAPI();
-test.newUrl();
+test.newUrl().then(()=>{
+    const test2=new question();
+    test2.questiontext(test.questions);
+});
 console.log(test.questions);
-const test2=new question();
-test2.questiontext(test.questions);
+
 console.log(test2.questionNumber);
 console.log(test2.text);
 
